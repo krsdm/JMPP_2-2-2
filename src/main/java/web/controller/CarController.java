@@ -18,14 +18,6 @@ public class CarController {
 
     @GetMapping(value = "/cars")
     public String getCars(@RequestParam(value = "count", required = false) Integer count, ModelMap model) {
-/*
-        if (Objects.isNull(count) || count > 4) {
-            model.addAttribute("cars", cars);
-        } else if (count > 0 && count < 5) {
-            model.addAttribute("cars",
-                    cars.stream().limit(count).collect(Collectors.toList()));
-        }
-*/
         model.addAttribute("cars", carService.getCars(count));
         return "cars";
     }
